@@ -3,7 +3,7 @@ const add = document.getElementById("inAdd");
 const texto = document.getElementById("inTarefa");
 const tarefas = document.getElementById("inLista");
 
-add.addEventListener('click', (e) => {
+add.addEventListener('click', (e) => { // chamada de ouvinte com objetivo de criar nova lista e apagar uma lista 
     e.preventDefault();
 
     if (texto.value === "") {
@@ -11,7 +11,7 @@ add.addEventListener('click', (e) => {
     } else {
         let textoDigitado = texto.value;
 
-        let itemNovo = ` 
+        let itemNovo = `
         <li>
             <input type="checkbox" class="check">
             <span>${textoDigitado}</span>
@@ -25,6 +25,8 @@ add.addEventListener('click', (e) => {
         tarefas.insertAdjacentHTML("afterbegin", itemNovo);
         texto.value = "";
 
+
+        // apagar lista com for each (interage a cada iteracao da lista)
         const apagarBotoes = document.querySelectorAll(".Apagar");
         apagarBotoes.forEach((botao) => {
             botao.addEventListener('click', () => {
